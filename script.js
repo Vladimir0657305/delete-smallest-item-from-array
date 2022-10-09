@@ -8,7 +8,7 @@ function removeSmallest(numbers) {
         }
     }
     let arrTemp = [...numbers];
-    console.log(arrTemp);
+    // console.log(arrTemp);
     arrTemp.splice(arrTemp.indexOf(min), 1);
 
     // console.log(arrTemp);
@@ -16,3 +16,18 @@ function removeSmallest(numbers) {
 }
 removeSmallest(arr);
 
+
+//  function which takes a list of strings and returns each line prepended by the correct number.
+let arrstr = ["a", "b", "c"];
+function number (array) {
+    if (array.length) {
+    for (let i = 0; i < array.length; i++) {
+        array.splice(i, 1, `${i+1}: ${array[i]}`);
+    }
+    return (console.log(array));
+    }
+    else {
+        return ([]);
+    }
+}
+number(arrstr);
