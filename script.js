@@ -49,3 +49,30 @@ function minMax(arr) {
     return(console.log( [min, max])); 
 }
 minMax(arrN);
+
+// function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+let arrS = ['', 'Moderately', 'Brains', 'Pizza'];
+function sortByLength(array) {
+    let obj1 = {};
+    for (let i = 0; i < array.length; i++) {
+        obj1[array[i].length] = array[i];
+    }
+    console.log(Object.values(obj1));
+    // let sortByLength = arr => arr.sort((a,b) => a.length - b.length);
+    
+
+    // for (let i = 0; i < array.length; i++) {
+    //     array.splice(i, 1, `${array[i].length}: ${array[i]}`)
+    // }
+    // array.sort(function (a, b) {
+    //     if(a < b){
+    //         return -1
+    //     }
+    //     })
+    // for (let i = 0; i < array.length; i++) {
+    //     array.splice(i, 1, `${array[i].split(' ')[1]}`)
+    // }
+        
+    // return(console.log(array) );
+};
+sortByLength(arrS);
