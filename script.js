@@ -153,3 +153,28 @@ function rowWeights(array) {
 // ======
 // const rowWeights = arr => arr.reduce((a, w, i) => (a[i%2]+=w, a), [0, 0]);
 rowWeights(arrW);
+
+
+
+// return the flattened version of the array with all the integers in the sorted (ascending) order.
+"use strict";
+const arrAnd = [[], [1]];
+function flattenAndSort(array) {
+    let arrNew = [];
+    for (let i = 0; i < array.length; i++) {
+        arrNew.push(...array[i])
+    }
+    arrNew.sort(function (a, b) { return a - b; })
+    // console.log(arrNew);
+    return arrNew;
+}
+// return [].concat(...array).sort((a,b) => a - b);
+// =========
+//   return array
+// .reduce((result, current) => [...result, ...current], [])
+// .sort((a, b) => a - b);
+// =========
+// const flattenAndSort = (array) => array.flat().sort((a, b) => a-b);
+// =========
+// const flattenAndSort = array => [].concat(...array).sort((a,b)=>a-b)
+flattenAndSort(arrAnd);
