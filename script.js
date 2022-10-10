@@ -101,3 +101,29 @@ function twoOldestAges(ages) {
 
 // return ages.sort(function(a,b){return a-b;}).slice(-2);
 twoOldestAges(arrOld);
+
+// compare two array like an axam.
+const arrEx1 = ["c", "b", "b", "b", "a", "c", "c", "a", "b", "c", "b", "b", "a", "b", "b", "a", "c", "c", "b"];
+const arrEx2 = ["a", "b", "b", "", "c", "b", "c", "b", "c", "a", "a", "a", "", "a", "a", "b", "c", "b", ""];
+
+function checkExam(array1, array2) {
+
+    let count = 0;
+    for (let i = 0; i < array1.length; i++) {
+        if (array2[i] === "") {count+=0}
+        else if (array1[i] === array2[i]) {count+=4}
+        else if (array1[i] != array2[i]) {count-=1}
+        
+    }
+    
+    if (count < 0) return 0;
+    console.log(count);
+    return(count);
+
+    
+}
+// checkExam=(arr1,arr2)=>Math.max(arr2.reduce((a,b,i) =>b==arr1[i]?a+4:b?a-1:a,0),0)
+// ===
+// let result = arr2.reduce((c, el, i) => el.length ? (el == arr1[i] ? c + 4 : c - 1) : c, 0);
+// return result < 0 ? 0 : result;
+checkExam(arrEx1, arrEx2)
