@@ -263,7 +263,7 @@ function arrayDiff(arr1, arr2) {
         }
         if (temp1 != 1) {out.push(arr1[i])};
         temp1 = 0;
-        console.log(out)
+        // console.log(out)
     }
     return out;
 }
@@ -281,3 +281,51 @@ arrayDiff(arrToS1, arrToS2);
 //     names[i] = item[0].toUpperCase() + item.slice(1).toLowerCase();
 // });
 
+
+// returns a string in the form of a phone number.
+let arrTel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+//  "(123) 456-7890"
+function createPhoneNumber(numbers) {
+    // console.log(`"(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}"`)
+    return (`"(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}"`);
+}
+// return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+// ==========
+// var format = "(xxx) xxx-xxxx";
+// for (var i = 0; i < numbers.length; i++) {
+//     format = format.replace('x', numbers[i]);
+// }
+// return format;
+// ==========
+// return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
+// ==========
+// return '('+n[0]+n[1]+n[2]+') '+n[3]+n[4]+n[5]+'-'+n[6]+n[7]+n[8]+n[9];
+createPhoneNumber(arrTel);
+
+
+
+// find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right
+// arr.reduce(function(a,b){return(a+b)})
+// const count = (arr) => arr.reduce((acc, num) => acc + num, 0);
+const arrSum = [1, 2, 3, 4, 3, 2, 1];
+function findEvenIndex(arr) {
+    let arr1 = [], arr2 = [], sum1 = 0, sum2=0;
+    for (let i = 0; i < arr.length; i++) {
+        i === 0 ? arr1 = arr.slice(0, 0) : arr1 = arr.slice(0, i);
+        // arr1 = arr.slice(-1, i);
+        console.log(i, arr1);
+        arr2 = arr.slice(i+1, arr.length);
+        console.log(arr2);
+        sum1 = arr1.reduce(function (a, b) { return (a + b) }, 0);
+        console.log('sum1-->',sum1);
+        sum2 = arr2.reduce(function (a, b) { return (a + b) }, 0);
+        console.log('sum2-->', sum2);
+        if (sum1 === sum2) {
+            console.log(i);
+            return i;
+        }
+    }
+    console.log("-1");
+    return -1;
+}
+findEvenIndex(arrSum);
