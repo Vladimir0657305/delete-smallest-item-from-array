@@ -178,3 +178,73 @@ function flattenAndSort(array) {
 // =========
 // const flattenAndSort = array => [].concat(...array).sort((a,b)=>a-b)
 flattenAndSort(arrAnd);
+
+
+// sorting data in object.
+const list1 = [
+    { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+    { firstName: 'Maia', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
+    { firstName: 'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'HTML' },
+    { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' }
+];
+function countDevelopers(list) {
+    let count = 0;
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].continent == 'Europe' && list[i].language == 'JavaScript') {count++}
+    }
+    // console.log(count)
+    return(count);
+}
+// return list.filter(x=>x.continent=='Europe'&&x.language=='JavaScript').length
+// =========
+// return list
+//     .filter(dev => dev.language === "JavaScript")
+//     .filter(dev => dev.continent === "Europe")
+//     .length
+countDevelopers(list1);
+
+
+// Sorted And How: ascending or descending or not
+// const arrSr = [15, 7, 3, -8];
+const arrSr = [1, 2];
+
+function isSortedAndHow(array) {
+    let arrNew =[];
+    let answer = '';
+    arrNew = array.slice();
+    arrNew.sort((a,b)=>a-b);
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === arrNew[i]) {
+            answer = 'yes, ascending';
+            console.log(answer);
+            return answer;
+        }
+        else {
+            answer = 'no';
+            break
+        };
+        }
+    for (let i = 0; i < array.length; i++) {
+        arrNew.sort((a, b) => b - a);
+        if (array[i] === arrNew[i]) {
+            answer = 'yes, descending';
+            console.log(answer);
+            return answer;
+        }
+        else {
+            answer = 'no';
+            break
+        };
+    }
+    console.log(answer);
+    return answer;
+}
+//   return arr.every((x,i)=>i==0||arr[i]>=arr[i-1])?'yes, ascending':
+// arr.every((x, i) => i == 0 || arr[i] <= arr[i - 1]) ? 'yes, descending' : 'no'
+// =========
+// switch (JSON.stringify(array)) {
+//     case JSON.stringify(array.sort((a, b) => a - b)): return 'yes, ascending';
+//     case JSON.stringify(array.sort((a, b) => b - a)): return 'yes, descending';
+//     default: return 'no';
+// }
+isSortedAndHow(arrSr);
