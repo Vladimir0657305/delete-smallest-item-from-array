@@ -343,5 +343,30 @@ function findUniq(arr) {
         return arr[arr.length-1];
     }
 }
+findUniq(arrAn);
 
-findUniq(arrAn)
+// find two different items in the array that, when added together, give the target value.
+let arrNu = [1, 2, 3];
+let targ = 4;
+function twoSum(numbers, target) {
+    let temp = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        temp = target - numbers[i];
+        console.log('temp=',i, temp);
+        for (let k = 0; k < i; k++) {
+            console.log('k-->',k);
+            if (temp === numbers[k]) {
+                console.log(i,k);
+                return ([i, k]);
+            }
+        }
+        for (let k = i + 1; k < numbers.length; k++) {
+            console.log('k==>', k);
+            if (temp === numbers[k]) {
+                console.log(i,k);
+                return ([i, k]);
+            }
+        }
+    }
+}
+twoSum(arrNu, targ);
