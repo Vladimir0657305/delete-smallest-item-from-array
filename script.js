@@ -216,7 +216,7 @@ function isSortedAndHow(array) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === arrNew[i]) {
             answer = 'yes, ascending';
-            console.log(answer);
+            // console.log(answer);
             return answer;
         }
         else {
@@ -227,7 +227,7 @@ function isSortedAndHow(array) {
     for (let i = 0; i < array.length; i++) {
         arrNew.sort((a, b) => b - a);
         if (array[i] === arrNew[i]) {
-            answer = 'yes, descending';
+            // answer = 'yes, descending';
             console.log(answer);
             return answer;
         }
@@ -236,7 +236,7 @@ function isSortedAndHow(array) {
             break
         };
     }
-    console.log(answer);
+    // console.log(answer);
     return answer;
 }
 //   return arr.every((x,i)=>i==0||arr[i]>=arr[i-1])?'yes, ascending':
@@ -248,3 +248,36 @@ function isSortedAndHow(array) {
 //     default: return 'no';
 // }
 isSortedAndHow(arrSr);
+
+
+// array differences
+const arrToS1 = [1, 2, 2];
+const arrToS2 = [2];
+function arrayDiff(arr1, arr2) {
+    let temp1 = 0, temp2 = {}, out = [];
+    for (let i = 0; i < arr1.length; i++) { 
+        for (let k = 0; k < arr2.length; k++) {
+            if (arr1[i] === arr2[k]) {
+                temp1 = 1;
+            }
+        }
+        if (temp1 != 1) {out.push(arr1[i])};
+        temp1 = 0;
+        console.log(out)
+    }
+    return out;
+}
+// return a.filter(e => !b.includes(e));
+// =========
+// return a.filter(function(x) { return b.indexOf(x) == -1; });
+// =========
+// var array_diff = (a, b) => a.filter(item => b.indexOf(item) < 0)
+arrayDiff(arrToS1, arrToS2);
+
+
+
+// const names = ['vLadiMir', 'maRk', 'LoGAn', 'VicTOr', 'mAks', 'KaTe', 'alEx'];
+// names.forEach((item, i) => {
+//     names[i] = item[0].toUpperCase() + item.slice(1).toLowerCase();
+// });
+
