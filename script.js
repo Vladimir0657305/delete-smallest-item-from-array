@@ -1,3 +1,11 @@
+window.onload= function () {
+        Particles.init
+            ({
+                selector:'.background'
+            });
+    };
+
+
 const arr = [5, 3, 2, 1, 4];
 
 function removeSmallest(numbers) {
@@ -24,7 +32,7 @@ function number (array) {
     for (let i = 0; i < array.length; i++) {
         array.splice(i, 1, `${i+1}: ${array[i]}`);
     }
-    return (console.log(array));
+    // return (console.log(array));
     }
     else {
         return ([]);
@@ -46,7 +54,7 @@ function minMax(arr) {
         }
     }
     // return [min, max];
-    return(console.log( [min, max])); 
+    // return(console.log( [min, max])); 
 }
 minMax(arrN);
 
@@ -57,7 +65,7 @@ function sortByLength(array) {
     for (let i = 0; i < array.length; i++) {
         obj1[array[i].length] = array[i];
     }
-    console.log(Object.values(obj1));
+    // console.log(Object.values(obj1));
     // let sortByLength = arr => arr.sort((a,b) => a.length - b.length);
     
 
@@ -76,3 +84,20 @@ function sortByLength(array) {
     // return(console.log(array) );
 };
 sortByLength(arrS);
+
+// return the two oldest/oldest ages within the array of ages passed in.
+const arrOld = [6, 5, 83, 5, 3, 18];
+function twoOldestAges(ages) {
+    ages.sort(function (a, b) {
+        if(a < b){
+            return -1
+        }
+        });
+    
+    return ([ages[ages.length - 2], ages[ages.length - 1]]);
+
+    // console.log([ages[ages.length - 2], ages[ages.length -1]])
+}
+
+// return ages.sort(function(a,b){return a-b;}).slice(-2);
+twoOldestAges(arrOld);
