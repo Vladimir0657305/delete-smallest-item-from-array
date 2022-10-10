@@ -117,7 +117,7 @@ function checkExam(array1, array2) {
     }
     
     if (count < 0) return 0;
-    console.log(count);
+    // console.log(count);
     return(count);
 
     
@@ -127,3 +127,29 @@ function checkExam(array1, array2) {
 // let result = arr2.reduce((c, el, i) => el.length ? (el == arr1[i] ? c + 4 : c - 1) : c, 0);
 // return result < 0 ? 0 : result;
 checkExam(arrEx1, arrEx2)
+
+// summing the weights of the two teams
+const arrW = [80 ];
+function rowWeights(array) {
+    let count1 = 0;
+    let count2 = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (i%2==0) {
+            count1 += array[i]
+            // console.log(i, count1, array[i]);
+        }
+        else {
+            count2 += array[i]
+        }
+    }
+    
+    return (count1, count2);
+    // console.log(count1, count2)
+}
+// let t1 = array.filter((x, i) => i % 2 == 0).reduce((a, item) => a + item, 0);
+// let t2 = array.filter((x, i) => i % 2 != 0).reduce((a, item) => a + item, 0);
+// ======
+// rowWeights=arr=>arr.reduce((a,b,i)=>(a[i%2]+=b,a),[0,0])
+// ======
+// const rowWeights = arr => arr.reduce((a, w, i) => (a[i%2]+=w, a), [0, 0]);
+rowWeights(arrW);
