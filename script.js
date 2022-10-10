@@ -312,20 +312,36 @@ function findEvenIndex(arr) {
     let arr1 = [], arr2 = [], sum1 = 0, sum2=0;
     for (let i = 0; i < arr.length; i++) {
         i === 0 ? arr1 = arr.slice(0, 0) : arr1 = arr.slice(0, i);
-        // arr1 = arr.slice(-1, i);
-        console.log(i, arr1);
+        // console.log(i, arr1);
         arr2 = arr.slice(i+1, arr.length);
-        console.log(arr2);
+        // console.log(arr2);
         sum1 = arr1.reduce(function (a, b) { return (a + b) }, 0);
-        console.log('sum1-->',sum1);
+        // console.log('sum1-->',sum1);
         sum2 = arr2.reduce(function (a, b) { return (a + b) }, 0);
-        console.log('sum2-->', sum2);
+        // console.log('sum2-->', sum2);
         if (sum1 === sum2) {
-            console.log(i);
+            // console.log(i);
             return i;
         }
     }
-    console.log("-1");
+    // console.log("-1");
     return -1;
 }
 findEvenIndex(arrSum);
+
+
+// Try to find unique number.
+let arrAn = [3, 10, 3, 3, 3];
+function findUniq(arr) {
+    arr.sort((a,b)=> a-b);
+    if (arr[0] !== arr[1]) {
+        // console.log(arr[0]);
+        return arr[0];
+    }
+    if (arr[arr.length - 2] !== arr[arr.length-1]) {
+        // console.log(arr[arr.length-1])
+        return arr[arr.length-1];
+    }
+}
+
+findUniq(arrAn)
