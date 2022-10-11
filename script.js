@@ -479,8 +479,65 @@ var encryptThis = function (text) {
         a[i] = a[i].replace(c, b);
         b = a.join(" ");
     }
-    console.log(b);
+    // console.log(b);
     return b;
 }
 
 encryptThis(textToEn);
+
+
+
+// array that has 1 added to the value represented by the array.
+let arrToAdd = [5, 3, 6, 6, 8, 2, 1, 2, 9, 0, 1, 6, 0, 8];
+function upArray(arr) {
+    let copy = [];
+    let a = 0;
+    let b = [];
+    let c = [];
+    let lengt = arr.length;
+    console.log(lengt);
+
+    for (let i = 0; i < arr.length-1; i++) {
+        if (arr[i] > 9 || arr[i] < 0 || arr[i] === "") return null;
+    }
+    // Здесь преобразовуем часть массива в число.
+    copy = arr.slice();
+    console.log(copy);
+    for (let i = 0; i < 1; i++) {
+        console.log('i====', i, arr[lengt - 1 - i]);
+        if (arr[lengt - 1 - i] >= 0) {
+            console.log('i-----', i);
+            console.log('index', lengt - 1 - i, arr[lengt - 1 - i].toString());
+            a += (arr[lengt - 1 - i] * 10 ** i).toString();
+            copy.pop(arr[lengt - 1 - i])
+            console.log('COPY====',copy, a);
+            
+            // a += arr.pop(arr[lengt - 1 - i] ) * 10 ** i;
+            console.log(a);
+        }
+    }
+    a++;
+    b = ("" + a).split("").map(Number)
+    // c = [...arr, ...b]
+    c = [...copy, ...b]
+    // a += arr.pop(arr.length - 1) + arr.pop(arr.length - 2) * 10;
+    // arr.push((a - a % 10) / 10);
+    // arr.push(a%10);
+
+    // Здесь преобразовуем весь массив в число. Ограничение BigInt.
+    // for (let i = 0; i < arr.length; i++) {
+    //     a += arr[arr.length - 1 - i] * 10 ** i;
+    //     b = BigInt(arr[arr.length - 1 - i] * 10 ** i)
+    //     BigInt(b);
+    //     // a += arr[arr.length - 1 - i] * 10 ** i;
+    //     a += b;
+    //     // console.log(arr[arr.length - 1 - i] * 10 ** i);
+    //     console.log(a);
+    // }
+    // a++;
+    // arr = ("" + a).split("").map(Number)
+
+    console.log(c);
+    return c;
+}
+upArray(arrToAdd);
