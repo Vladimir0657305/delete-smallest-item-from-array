@@ -352,21 +352,135 @@ function twoSum(numbers, target) {
     let temp = 0;
     for (let i = 0; i < numbers.length; i++) {
         temp = target - numbers[i];
-        console.log('temp=',i, temp);
+        // console.log('temp=',i, temp);
         for (let k = 0; k < i; k++) {
-            console.log('k-->',k);
+            // console.log('k-->',k);
             if (temp === numbers[k]) {
-                console.log(i,k);
+                // console.log(i,k);
                 return ([i, k]);
             }
         }
         for (let k = i + 1; k < numbers.length; k++) {
-            console.log('k==>', k);
+            // console.log('k==>', k);
             if (temp === numbers[k]) {
-                console.log(i,k);
+                // console.log(i,k);
                 return ([i, k]);
             }
         }
     }
 }
 twoSum(arrNu, targ);
+
+// a pseudo-encryption algorithm
+let strTest = "hskt svr neetn!Ti aai eyitrsig";
+let n = 1;
+function encrypt(text, n) {
+    let im = text;
+    let out = '';
+    if (n <= 0 || text === null || text === "") {
+            out = text;
+            console.log(out);
+            return out;
+        }
+        else {
+            for (k = 0; k < n; k++) {
+                out = '';
+                for (let i = 1; i < text.length; i+=2) {out += im[i]}
+                for (let i = 0; i < text.length; i += 2) {out += im[i]}
+                im = out;
+            }
+        }    
+    console.log(out);   
+    return out;
+}
+
+function decrypt(encryptedText, n) {
+    let im = encryptedText;
+    let out = '';
+    let begin = Math.floor(encryptedText.length / 2);
+    console.log(begin);
+    console.log(encryptedText.length );
+    if (n <= 0 || encryptedText === null || encryptedText === "") {
+        out = encryptedText;
+        console.log(out);
+        return out;
+    }
+    else {
+        for (k = 0; k < n; k++) {
+            out = '';
+            let count = 0;
+            
+            for (let i = begin; i < encryptedText.length; i ++) { 
+                out += im[i]; 
+                if (encryptedText.length %2 != 0) {
+                    if (count < encryptedText.length - begin-1) {
+                        out += im[count];
+                    }
+                }
+                else {
+                    if (count < encryptedText.length - begin) {
+                        out += im[count];
+                    }
+                }
+                count++;
+            }
+
+
+            // if (encryptedText.length % 2 === 0) {
+            //     for (let i = begin; i < encryptedText.length; i++) {
+            //         out += im[i];
+            //         out += im[count];
+            //         count++;
+            //     }
+            // }
+            // else {
+            //     for (let i = begin; i < encryptedText.length; i++) {
+            //         console.log(i, im[i], count, im[count])
+            //         out += im[i];
+            //         out += im[count];
+            //         count++;
+            //     }
+            // }
+            im = out;
+        }
+    }
+    console.log(out);
+    return out;
+}
+// encrypt(strTest, n);
+
+// decrypt(strTest, n);
+
+
+// "g".charCodeAt()
+// create secret messages.
+
+let textToEn = "The more he saw the less he spoke";
+String.prototype.replaceAt = function (index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+
+var encryptThis = function (text) {
+    let a = [];
+    let b = '';
+    let c ='';
+    let d ='';
+
+    a = text.split(" ");
+    for (let i = 0; i < a.length; i++) {
+        if (a[i][1] && a[i][2]) {
+            b = a[i][1];
+            c = a[i][a[i].length - 1];
+            // d = a[i].replaceAt(a[i].length - 1, b).replaceAt(1, c)
+            a[i] = a[i].replaceAt(a[i].length - 1, b).replaceAt(1, c)
+        }
+        b = a[i][0].charCodeAt().toString();
+        c = a[i][0];
+        a[i] = a[i].replace(c, b);
+        b = a.join(" ");
+    }
+    console.log(b);
+    return b;
+}
+
+encryptThis(textToEn);
