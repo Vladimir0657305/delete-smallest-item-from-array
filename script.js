@@ -488,11 +488,12 @@ encryptThis(textToEn);
 
 
 // array that has 1 added to the value represented by the array.
-let arrToAdd = [5, 3, 6, 6, 8, 2, 1, 2, 9, 0, 1, 6, 0, 8];
+let arrToAdd = [5, 3, 0, 9];
 function upArray(arr) {
     let copy = [];
-    let a = 0;
-    let b = [];
+    let newAr = [];
+    let isZero = 0;
+    let b = 0;
     let c = [];
     let lengt = arr.length;
     console.log(lengt);
@@ -503,23 +504,64 @@ function upArray(arr) {
     // Здесь преобразовуем часть массива в число.
     copy = arr.slice();
     console.log(copy);
-    for (let i = 0; i < 1; i++) {
-        console.log('i====', i, arr[lengt - 1 - i]);
-        if (arr[lengt - 1 - i] >= 0) {
-            console.log('i-----', i);
-            console.log('index', lengt - 1 - i, arr[lengt - 1 - i].toString());
-            a += (arr[lengt - 1 - i] * 10 ** i).toString();
-            copy.pop(arr[lengt - 1 - i])
-            console.log('COPY====',copy, a);
+    // for (let i = 0; i < 2; i++) {
+    //     console.log('i====', i, arr[lengt - 1 - i]);
+    //     if (arr[lengt - 1 - i] >= 0) {
+    //         console.log('i-----', i);
+    //         console.log('index', lengt - 1 - i, arr[lengt - 1 - i]);
+    //         a += (arr[lengt - 1 - i] * 10 ** i);
+    //         copy.pop(arr[lengt - 1 - i])
+    //         console.log('COPY====',copy, a);
             
             // a += arr.pop(arr[lengt - 1 - i] ) * 10 ** i;
-            console.log(a);
+            // console.log(a);
+        // }
+    // }
+
+     
+        
+        if ((arr[lengt - 1] + 1 ) <= 9) {
+            copy.pop(arr[lengt - 1 - i]);
+            newAr.push(arr[lengt - 1 - i] + 1);
+            console.log([...copy, ...newAr])
+            c = [...copy, ...newAr];
+            return (c);
         }
-    }
-    a++;
-    b = ("" + a).split("").map(Number)
+        else {
+            isZero = 1;
+            for (let i = 0; i < lengt-1; i++) {
+                console.log(i);
+                if ((arr[lengt - 1 - i]  + isZero) <= 9) {
+                    console.log('I===',i);
+                    copy.pop(arr[lengt - 1 - i]);
+                    newAr.push(arr[lengt - 1 - i] + isZero);
+                    isZero = 0;
+                    console.log('==>', i, isZero, arr[lengt - 1 - i], );
+                    // console.log([...copy, ...newAr])
+                    // c = [...copy, ...newAr];
+                    // return (c);
+                }
+                else {
+                    console.log('I++++', i);
+                    copy.pop(arr[lengt - 1 - i]);
+                    newAr.push(0);
+                    // isZero = 1;
+                    console.log(copy, newAr);
+                }
+            }
+            console.log([...copy, ...newAr])
+            c = [...copy, ...newAr];
+            return (c);
+            // isZero = 1;
+            // copy.pop(arr[lengt - 1 - i]);
+            // newAr.push(0);
+        }
+ 
+
+    // a++;
+    // b = ("" + a).split("").map(Number)
     // c = [...arr, ...b]
-    c = [...copy, ...b]
+    // c = [...copy, ...b]
     // a += arr.pop(arr.length - 1) + arr.pop(arr.length - 2) * 10;
     // arr.push((a - a % 10) / 10);
     // arr.push(a%10);
@@ -537,7 +579,7 @@ function upArray(arr) {
     // a++;
     // arr = ("" + a).split("").map(Number)
 
-    console.log(c);
-    return c;
+    // console.log(c);
+    // return c;
 }
 upArray(arrToAdd);
