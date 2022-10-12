@@ -567,4 +567,35 @@ function upArray(arr) {
         }
  
 }
-upArray(arrToAdd);
+// upArray(arrToAdd);
+
+
+// method, that return the length of the missing array.
+let arrayOfArrays = [[], [2, 1, 0, 1], [4], [1, 4], [4, 3, 1, 0, 4, 4, 4, 1, 4, 1], [4, 0, 3], [2, 4, 0, 3, 4], [3, 0, 1, 3, 0, 2], [4, 4, 0, 2, 1, 2, 1], [4, 3, 3, 1, 1, 4, 3, 3]];
+function getLengthOfMissingArray(arrayOfArrays) {
+    let a = [];
+    if (arrayOfArrays == null || arrayOfArrays.length === 0) {
+        console.log('==',0);
+        return 0;}
+    for (let i = 0; i < arrayOfArrays.length; i++) {
+        if (arrayOfArrays[i] == null || arrayOfArrays[i].length === 0) {
+            console.log('==-',0);
+            return 0;}
+    a.push(arrayOfArrays[i].length);
+    }
+    let min = Math.min(...a);
+    a.sort((a,b)=>a-b);
+    console.log(a)
+    for (let i = 0; i < a.length; i++) {
+        // console.log(i,a[i]);
+        console.log(a[i], i + min);
+        if (a[i] != i+min) {
+            console.log(a[i], i+min);
+            console.log('-->', i+min);
+            return i+min
+        }
+    }
+}
+getLengthOfMissingArray(arrayOfArrays);
+
+
