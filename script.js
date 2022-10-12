@@ -488,22 +488,24 @@ encryptThis(textToEn);
 
 
 // array that has 1 added to the value represented by the array.
-let arrToAdd = [5, 3, 0, 9];
+let arrToAdd = [];
 function upArray(arr) {
     let copy = [];
     let newAr = [];
     let isZero = 0;
-    let b = 0;
+    // let b = 0;
     let c = [];
     let lengt = arr.length;
     console.log(lengt);
+    if (lengt === 0) {
+        console.log(null)
+        return null;
+    }
 
-    for (let i = 0; i < arr.length-1; i++) {
-        if (arr[i] > 9 || arr[i] < 0 || arr[i] === "") return null;
+    for (let i = 0; i < lengt; i++) {
+        if (arr[i] > 9 || arr[i] < 0 || arr[i] === "" ) return null;
     }
     // Здесь преобразовуем часть массива в число.
-    copy = arr.slice();
-    console.log(copy);
     // for (let i = 0; i < 2; i++) {
     //     console.log('i====', i, arr[lengt - 1 - i]);
     //     if (arr[lengt - 1 - i] >= 0) {
@@ -518,68 +520,51 @@ function upArray(arr) {
         // }
     // }
 
-     
+        copy = [...arr];
+        console.log(copy);
         
         if ((arr[lengt - 1] + 1 ) <= 9) {
-            copy.pop(arr[lengt - 1 - i]);
-            newAr.push(arr[lengt - 1 - i] + 1);
+            copy.pop(arr[lengt - 1]);
+            newAr.push(arr[lengt - 1] + 1);
             console.log([...copy, ...newAr])
             c = [...copy, ...newAr];
             return (c);
         }
         else {
             isZero = 1;
-            for (let i = 0; i < lengt-1; i++) {
-                console.log(i);
+            for (let i = 0; i < lengt ; i++) {
+                console.log('i==', i);
+                                    
                 if ((arr[lengt - 1 - i]  + isZero) <= 9) {
+                                
                     console.log('I===',i);
                     copy.pop(arr[lengt - 1 - i]);
                     newAr.push(arr[lengt - 1 - i] + isZero);
                     isZero = 0;
-                    console.log('==>', i, isZero, arr[lengt - 1 - i], );
-                    // console.log([...copy, ...newAr])
-                    // c = [...copy, ...newAr];
-                    // return (c);
+                    console.log('==>', i, isZero, arr[lengt - 1 - i], copy, newAr);
+                    console.log([...copy, ...newAr.reverse()])
+                    c = [...copy, ...newAr.reverse()];
+                    return (c);
                 }
                 else {
+                    if (i === (lengt - 1) && isZero === 1) {
+                                        copy.pop(arr[lengt - 1]);
+                                        newAr.push(0);
+                                        newAr.push(1);
+                                        console.log([...copy, ...newAr.reverse()])
+                                        c = [...copy, ...newAr.reverse()];
+                                        return (c);
+                                    }
                     console.log('I++++', i);
                     copy.pop(arr[lengt - 1 - i]);
                     newAr.push(0);
                     // isZero = 1;
-                    console.log(copy, newAr);
+                    console.log(copy, newAr, isZero);
+                    
                 }
+                console.log('I++!+', i, lengt - 1);
             }
-            console.log([...copy, ...newAr])
-            c = [...copy, ...newAr];
-            return (c);
-            // isZero = 1;
-            // copy.pop(arr[lengt - 1 - i]);
-            // newAr.push(0);
         }
  
-
-    // a++;
-    // b = ("" + a).split("").map(Number)
-    // c = [...arr, ...b]
-    // c = [...copy, ...b]
-    // a += arr.pop(arr.length - 1) + arr.pop(arr.length - 2) * 10;
-    // arr.push((a - a % 10) / 10);
-    // arr.push(a%10);
-
-    // Здесь преобразовуем весь массив в число. Ограничение BigInt.
-    // for (let i = 0; i < arr.length; i++) {
-    //     a += arr[arr.length - 1 - i] * 10 ** i;
-    //     b = BigInt(arr[arr.length - 1 - i] * 10 ** i)
-    //     BigInt(b);
-    //     // a += arr[arr.length - 1 - i] * 10 ** i;
-    //     a += b;
-    //     // console.log(arr[arr.length - 1 - i] * 10 ** i);
-    //     console.log(a);
-    // }
-    // a++;
-    // arr = ("" + a).split("").map(Number)
-
-    // console.log(c);
-    // return c;
 }
 upArray(arrToAdd);
