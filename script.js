@@ -596,6 +596,38 @@ function getLengthOfMissingArray(arrayOfArrays) {
         }
     }
 }
-getLengthOfMissingArray(arrayOfArrays);
+// getLengthOfMissingArray(arrayOfArrays);
 
+// to return all pairs of integers from a given array of integers that have a difference of 2.
+// creation araray of arrays.
+let ddd = [1, 3, 4, 6];
+function twosDifference(input) {
+    let arr = [];
+    let out = [];
+    let count = 0;
 
+    input.sort((a,b)=>a-b);
+    for (let i = 0; i < input.length; i++) {
+        // console.log('==>',i,input[i]);
+        if (input.includes(input[i]+2)) {
+            // console.log(i, input[i]);
+            // arr.push(input[i]);
+            // arr.push(input[i] +2);
+            arr[0] = input[i];
+            arr[1] = input[i] + 2;
+            out[count] = [...arr];
+            count++;
+            // console.log(i,out[i])
+            // out2.push(out);
+            // out.splice(-1, 0, ...out.splice(-1, 1, arr))
+            // console.log(out.splice(-1, 1, arr))
+            // console.log(out);
+            // console.log(out2);
+        }
+        // out.splice(-1, 0, ...out.splice(-1, 1, arr))
+    }
+    // console.log(arr);
+    console.log(out);
+    return out;
+}
+twosDifference(ddd);
