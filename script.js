@@ -1,9 +1,9 @@
-window.onload= function () {
-        Particles.init
-            ({
-                selector:'.background'
-            });
-    };
+window.onload = function () {
+    Particles.init
+        ({
+            selector: '.background'
+        });
+};
 
 
 const arr = [5, 3, 2, 1, 4];
@@ -27,12 +27,12 @@ removeSmallest(arr);
 
 //  function which takes a list of strings and returns each line prepended by the correct number.
 let arrstr = ["a", "b", "c"];
-function number (array) {
+function number(array) {
     if (array.length) {
-    for (let i = 0; i < array.length; i++) {
-        array.splice(i, 1, `${i+1}: ${array[i]}`);
-    }
-    // return (console.log(array));
+        for (let i = 0; i < array.length; i++) {
+            array.splice(i, 1, `${i + 1}: ${array[i]}`);
+        }
+        // return (console.log(array));
     }
     else {
         return ([]);
@@ -43,14 +43,14 @@ number(arrstr);
 // function that returns both the minimum and maximum number of the given list/array.
 let arrN = [1, 2, 3, 4, 5];
 function minMax(arr) {
-    let min = arr[0]; 
+    let min = arr[0];
     let max = arr[0];
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] < min) {
-            min=arr[i]
+            min = arr[i]
         }
         if (arr[i] > max) {
-            max= arr[i];
+            max = arr[i];
         }
     }
     // return [min, max];
@@ -67,7 +67,7 @@ function sortByLength(array) {
     }
     // console.log(Object.values(obj1));
     // let sortByLength = arr => arr.sort((a,b) => a.length - b.length);
-    
+
 
     // for (let i = 0; i < array.length; i++) {
     //     array.splice(i, 1, `${array[i].length}: ${array[i]}`)
@@ -80,7 +80,7 @@ function sortByLength(array) {
     // for (let i = 0; i < array.length; i++) {
     //     array.splice(i, 1, `${array[i].split(' ')[1]}`)
     // }
-        
+
     // return(console.log(array) );
 };
 sortByLength(arrS);
@@ -89,11 +89,11 @@ sortByLength(arrS);
 const arrOld = [6, 5, 83, 5, 3, 18];
 function twoOldestAges(ages) {
     ages.sort(function (a, b) {
-        if(a < b){
+        if (a < b) {
             return -1
         }
-        });
-    
+    });
+
     return ([ages[ages.length - 2], ages[ages.length - 1]]);
 
     // console.log([ages[ages.length - 2], ages[ages.length -1]])
@@ -110,17 +110,17 @@ function checkExam(array1, array2) {
 
     let count = 0;
     for (let i = 0; i < array1.length; i++) {
-        if (array2[i] === "") {count+=0}
-        else if (array1[i] === array2[i]) {count+=4}
-        else if (array1[i] != array2[i]) {count-=1}
-        
+        if (array2[i] === "") { count += 0 }
+        else if (array1[i] === array2[i]) { count += 4 }
+        else if (array1[i] != array2[i]) { count -= 1 }
+
     }
-    
+
     if (count < 0) return 0;
     // console.log(count);
-    return(count);
+    return (count);
 
-    
+
 }
 // checkExam=(arr1,arr2)=>Math.max(arr2.reduce((a,b,i) =>b==arr1[i]?a+4:b?a-1:a,0),0)
 // ===
@@ -129,12 +129,12 @@ function checkExam(array1, array2) {
 checkExam(arrEx1, arrEx2)
 
 // summing the weights of the two teams
-const arrW = [80 ];
+const arrW = [80];
 function rowWeights(array) {
     let count1 = 0;
     let count2 = 0;
     for (let i = 0; i < array.length; i++) {
-        if (i%2==0) {
+        if (i % 2 == 0) {
             count1 += array[i]
             // console.log(i, count1, array[i]);
         }
@@ -142,7 +142,7 @@ function rowWeights(array) {
             count2 += array[i]
         }
     }
-    
+
     return (count1, count2);
     // console.log(count1, count2)
 }
@@ -190,10 +190,10 @@ const list1 = [
 function countDevelopers(list) {
     let count = 0;
     for (let i = 0; i < list.length; i++) {
-        if (list[i].continent == 'Europe' && list[i].language == 'JavaScript') {count++}
+        if (list[i].continent == 'Europe' && list[i].language == 'JavaScript') { count++ }
     }
     // console.log(count)
-    return(count);
+    return (count);
 }
 // return list.filter(x=>x.continent=='Europe'&&x.language=='JavaScript').length
 // =========
@@ -209,10 +209,10 @@ countDevelopers(list1);
 const arrSr = [1, 2];
 
 function isSortedAndHow(array) {
-    let arrNew =[];
+    let arrNew = [];
     let answer = '';
     arrNew = array.slice();
-    arrNew.sort((a,b)=>a-b);
+    arrNew.sort((a, b) => a - b);
     for (let i = 0; i < array.length; i++) {
         if (array[i] === arrNew[i]) {
             answer = 'yes, ascending';
@@ -223,7 +223,7 @@ function isSortedAndHow(array) {
             answer = 'no';
             break
         };
-        }
+    }
     for (let i = 0; i < array.length; i++) {
         arrNew.sort((a, b) => b - a);
         if (array[i] === arrNew[i]) {
@@ -255,13 +255,13 @@ const arrToS1 = [1, 2, 2];
 const arrToS2 = [2];
 function arrayDiff(arr1, arr2) {
     let temp1 = 0, temp2 = {}, out = [];
-    for (let i = 0; i < arr1.length; i++) { 
+    for (let i = 0; i < arr1.length; i++) {
         for (let k = 0; k < arr2.length; k++) {
             if (arr1[i] === arr2[k]) {
                 temp1 = 1;
             }
         }
-        if (temp1 != 1) {out.push(arr1[i])};
+        if (temp1 != 1) { out.push(arr1[i]) };
         temp1 = 0;
         // console.log(out)
     }
@@ -309,11 +309,11 @@ createPhoneNumber(arrTel);
 // const count = (arr) => arr.reduce((acc, num) => acc + num, 0);
 const arrSum = [1, 2, 3, 4, 3, 2, 1];
 function findEvenIndex(arr) {
-    let arr1 = [], arr2 = [], sum1 = 0, sum2=0;
+    let arr1 = [], arr2 = [], sum1 = 0, sum2 = 0;
     for (let i = 0; i < arr.length; i++) {
         i === 0 ? arr1 = arr.slice(0, 0) : arr1 = arr.slice(0, i);
         // console.log(i, arr1);
-        arr2 = arr.slice(i+1, arr.length);
+        arr2 = arr.slice(i + 1, arr.length);
         // console.log(arr2);
         sum1 = arr1.reduce(function (a, b) { return (a + b) }, 0);
         // console.log('sum1-->',sum1);
@@ -333,14 +333,14 @@ findEvenIndex(arrSum);
 // Try to find unique number.
 let arrAn = [3, 10, 3, 3, 3];
 function findUniq(arr) {
-    arr.sort((a,b)=> a-b);
+    arr.sort((a, b) => a - b);
     if (arr[0] !== arr[1]) {
         // console.log(arr[0]);
         return arr[0];
     }
-    if (arr[arr.length - 2] !== arr[arr.length-1]) {
+    if (arr[arr.length - 2] !== arr[arr.length - 1]) {
         // console.log(arr[arr.length-1])
-        return arr[arr.length-1];
+        return arr[arr.length - 1];
     }
 }
 findUniq(arrAn);
@@ -378,19 +378,19 @@ function encrypt(text, n) {
     let im = text;
     let out = '';
     if (n <= 0 || text === null || text === "") {
-            out = text;
-            console.log(out);
-            return out;
+        out = text;
+        console.log(out);
+        return out;
+    }
+    else {
+        for (k = 0; k < n; k++) {
+            out = '';
+            for (let i = 1; i < text.length; i += 2) { out += im[i] }
+            for (let i = 0; i < text.length; i += 2) { out += im[i] }
+            im = out;
         }
-        else {
-            for (k = 0; k < n; k++) {
-                out = '';
-                for (let i = 1; i < text.length; i+=2) {out += im[i]}
-                for (let i = 0; i < text.length; i += 2) {out += im[i]}
-                im = out;
-            }
-        }    
-    console.log(out);   
+    }
+    console.log(out);
     return out;
 }
 
@@ -399,7 +399,7 @@ function decrypt(encryptedText, n) {
     let out = '';
     let begin = Math.floor(encryptedText.length / 2);
     console.log(begin);
-    console.log(encryptedText.length );
+    console.log(encryptedText.length);
     if (n <= 0 || encryptedText === null || encryptedText === "") {
         out = encryptedText;
         console.log(out);
@@ -409,11 +409,11 @@ function decrypt(encryptedText, n) {
         for (k = 0; k < n; k++) {
             out = '';
             let count = 0;
-            
-            for (let i = begin; i < encryptedText.length; i ++) { 
-                out += im[i]; 
-                if (encryptedText.length %2 != 0) {
-                    if (count < encryptedText.length - begin-1) {
+
+            for (let i = begin; i < encryptedText.length; i++) {
+                out += im[i];
+                if (encryptedText.length % 2 != 0) {
+                    if (count < encryptedText.length - begin - 1) {
                         out += im[count];
                     }
                 }
@@ -463,8 +463,8 @@ String.prototype.replaceAt = function (index, replacement) {
 var encryptThis = function (text) {
     let a = [];
     let b = '';
-    let c ='';
-    let d ='';
+    let c = '';
+    let d = '';
 
     a = text.split(" ");
     for (let i = 0; i < a.length; i++) {
@@ -503,7 +503,7 @@ function upArray(arr) {
     }
 
     for (let i = 0; i < lengt; i++) {
-        if (arr[i] > 9 || arr[i] < 0 || arr[i] === "" ) return null;
+        if (arr[i] > 9 || arr[i] < 0 || arr[i] === "") return null;
     }
     // Здесь преобразовуем часть массива в число.
     // for (let i = 0; i < 2; i++) {
@@ -514,58 +514,58 @@ function upArray(arr) {
     //         a += (arr[lengt - 1 - i] * 10 ** i);
     //         copy.pop(arr[lengt - 1 - i])
     //         console.log('COPY====',copy, a);
-            
-            // a += arr.pop(arr[lengt - 1 - i] ) * 10 ** i;
-            // console.log(a);
-        // }
+
+    // a += arr.pop(arr[lengt - 1 - i] ) * 10 ** i;
+    // console.log(a);
+    // }
     // }
 
-        copy = [...arr];
-        console.log(copy);
-        
-        if ((arr[lengt - 1] + 1 ) <= 9) {
-            copy.pop(arr[lengt - 1]);
-            newAr.push(arr[lengt - 1] + 1);
-            console.log([...copy, ...newAr])
-            c = [...copy, ...newAr];
-            return (c);
-        }
-        else {
-            isZero = 1;
-            for (let i = 0; i < lengt ; i++) {
-                console.log('i==', i);
-                                    
-                if ((arr[lengt - 1 - i]  + isZero) <= 9) {
-                                
-                    console.log('I===',i);
-                    copy.pop(arr[lengt - 1 - i]);
-                    newAr.push(arr[lengt - 1 - i] + isZero);
-                    isZero = 0;
-                    console.log('==>', i, isZero, arr[lengt - 1 - i], copy, newAr);
+    copy = [...arr];
+    console.log(copy);
+
+    if ((arr[lengt - 1] + 1) <= 9) {
+        copy.pop(arr[lengt - 1]);
+        newAr.push(arr[lengt - 1] + 1);
+        console.log([...copy, ...newAr])
+        c = [...copy, ...newAr];
+        return (c);
+    }
+    else {
+        isZero = 1;
+        for (let i = 0; i < lengt; i++) {
+            console.log('i==', i);
+
+            if ((arr[lengt - 1 - i] + isZero) <= 9) {
+
+                console.log('I===', i);
+                copy.pop(arr[lengt - 1 - i]);
+                newAr.push(arr[lengt - 1 - i] + isZero);
+                isZero = 0;
+                console.log('==>', i, isZero, arr[lengt - 1 - i], copy, newAr);
+                console.log([...copy, ...newAr.reverse()])
+                c = [...copy, ...newAr.reverse()];
+                return (c);
+            }
+            else {
+                if (i === (lengt - 1) && isZero === 1) {
+                    copy.pop(arr[lengt - 1]);
+                    newAr.push(0);
+                    newAr.push(1);
                     console.log([...copy, ...newAr.reverse()])
                     c = [...copy, ...newAr.reverse()];
                     return (c);
                 }
-                else {
-                    if (i === (lengt - 1) && isZero === 1) {
-                                        copy.pop(arr[lengt - 1]);
-                                        newAr.push(0);
-                                        newAr.push(1);
-                                        console.log([...copy, ...newAr.reverse()])
-                                        c = [...copy, ...newAr.reverse()];
-                                        return (c);
-                                    }
-                    console.log('I++++', i);
-                    copy.pop(arr[lengt - 1 - i]);
-                    newAr.push(0);
-                    // isZero = 1;
-                    console.log(copy, newAr, isZero);
-                    
-                }
-                console.log('I++!+', i, lengt - 1);
+                console.log('I++++', i);
+                copy.pop(arr[lengt - 1 - i]);
+                newAr.push(0);
+                // isZero = 1;
+                console.log(copy, newAr, isZero);
+
             }
+            console.log('I++!+', i, lengt - 1);
         }
- 
+    }
+
 }
 // upArray(arrToAdd);
 
@@ -575,24 +575,26 @@ let arrayOfArrays = [[], [2, 1, 0, 1], [4], [1, 4], [4, 3, 1, 0, 4, 4, 4, 1, 4, 
 function getLengthOfMissingArray(arrayOfArrays) {
     let a = [];
     if (arrayOfArrays == null || arrayOfArrays.length === 0) {
-        console.log('==',0);
-        return 0;}
+        console.log('==', 0);
+        return 0;
+    }
     for (let i = 0; i < arrayOfArrays.length; i++) {
         if (arrayOfArrays[i] == null || arrayOfArrays[i].length === 0) {
-            console.log('==-',0);
-            return 0;}
-    a.push(arrayOfArrays[i].length);
+            console.log('==-', 0);
+            return 0;
+        }
+        a.push(arrayOfArrays[i].length);
     }
     let min = Math.min(...a);
-    a.sort((a,b)=>a-b);
+    a.sort((a, b) => a - b);
     console.log(a)
     for (let i = 0; i < a.length; i++) {
         // console.log(i,a[i]);
         console.log(a[i], i + min);
-        if (a[i] != i+min) {
-            console.log(a[i], i+min);
-            console.log('-->', i+min);
-            return i+min
+        if (a[i] != i + min) {
+            console.log(a[i], i + min);
+            console.log('-->', i + min);
+            return i + min
         }
     }
 }
@@ -606,10 +608,10 @@ function twosDifference(input) {
     let out = [];
     let count = 0;
 
-    input.sort((a,b)=>a-b);
+    input.sort((a, b) => a - b);
     for (let i = 0; i < input.length; i++) {
         // console.log('==>',i,input[i]);
-        if (input.includes(input[i]+2)) {
+        if (input.includes(input[i] + 2)) {
             // console.log(i, input[i]);
             // arr.push(input[i]);
             // arr.push(input[i] +2);
@@ -630,4 +632,111 @@ function twosDifference(input) {
     console.log(out);
     return out;
 }
-twosDifference(ddd);
+// twosDifference(ddd);
+
+// sort elements in an array by decreasing frequency of elements.
+let arrSolv = [0,
+    1,
+    1,
+    1,
+    8,
+    10,
+    10,
+    11,
+    49];
+function solve(arr) {
+    console.log(arr);
+    let outSol = {};
+    let outArr = [];
+    arr.sort((a, b) => a - b);
+    for (let i = 0; i < arr.length; i++) {
+        outSol[arr[i]] ? outSol[arr[i]] += 1 : outSol[arr[i]] = 1;
+    }
+    // console.log('outSol==', outSol);
+
+    for (let [keys, values] of Object.entries(outSol)) {
+    }
+
+    // const treg = Object.values(outSol).sort(function (a, b) { return b - a  })
+    // console.log('TREG', treg);
+    // for (let j = 0; j < treg.length; j++) {
+    //     for (let k in outSol) {
+    //         if (outSol[k] === treg[j]) {
+    //             for (let i = 0; i < treg[j]; i++) outArr.push(k);
+    // console.log('iiiiiiii', list[k], k, keysSorted[j])
+    //             delete outSol.k;
+    //         }
+    //     }
+    // }
+    // console.log(outArr);
+    const treg = Object.values(outSol).sort(function (a, b) { return b - a });
+    for (let j = 0; j < treg.length; j++) {
+        for (let [keys, values] of Object.entries(outSol)) {
+            if (values === treg[j]) {
+                for (let i = 0; i < treg[j]; i++) outArr.push(+keys);
+                delete outSol[keys];
+            }
+        }
+    }
+    console.log(outArr);
+    return outArr;
+
+    // const sortedValues = Object.keys(outSol)
+    //     .sort((a, b) => outSol[b] - outSol[a])
+    //     .reduce((rslt, key) => rslt.set(key, outSol[key]), new Map());
+    // console.log('==++==++', sortedValues);
+    // for (const [keys, values] of sortedValues.entries()) {
+    //     console.log('obj', keys, values)
+    //     for (let i = 0; i < values; i++) {
+    //         outArr.push(+keys);
+    //     }
+    // }
+    // console.log(outArr);
+
+    console.log([{ name: "John", id: 7 }, { name: "John", id: 4 }, { name: "Adam", id: 3 }, { name: "Adam", id: 30 }, { name: "Rose", id: 1 }].sort(function (a, b) {
+        return (b.name < a.name) - (a.name < b.name) || (b.id < a.id) - (a.id < b.id);
+    }))
+}
+// var r = {}
+// for (var n of arr) r[n] = r[n] + 1 || 1
+// return arr.slice().sort((a, b) => r[b] - r[a] || a - b)
+// ===========
+// let dict = new Map()
+// for (let x of arr) {
+//     dict.set(x, (dict.get(x) || 0) + 1)
+// }
+// return arr.sort((x, y) => {
+//     let n = dict.get(x)
+//     let m = dict.get(y)
+//     return n === m ? x - y : m - n
+// })
+// ===========
+// return arr.map(elem => [elem, arr.filter(num => num == elem).length])
+//     .sort((a, b) => b[1] - a[1] || a[0] - b[0])
+//     .map(x => x[0])
+// ===========
+// let obj = {}
+// arr.forEach(item => obj[item] = (obj[item] + 1 || 1))
+// return arr.sort((a, b) => obj[b] === obj[a] ? a - b : obj[b] - obj[a])
+// ===========
+// (obj => arr.sort((a, b) => obj[b] - obj[a] || a - b))
+//     (arr.reduce((pre, val) => ({ ...pre, [val]: -~pre[val] }), {}));
+// ===========
+// solve(arrSolv);
+
+var list = { "you": 3, "me": 5, "foo": 11, "bar": 7 };
+let listOut = [];
+// keysSorted = Object.values(list).sort(function (a, b) { return list[b] - list[a]  })
+let keysSorted = Object.values(list).sort(function (a, b) { return b - a });
+// console.log(keysSorted); 
+for (let j = 0; j < keysSorted.length; j++) {
+    for (let k in list) {
+        // console.log(k,list[k]);
+        if (list[k] === keysSorted[j]) {
+            for (let i = 0; i < keysSorted[j]; i++) listOut.push(k);
+            // console.log('iiiiiiii', list[k], k, keysSorted[j])
+            delete list.k;
+        }
+    }
+}
+
