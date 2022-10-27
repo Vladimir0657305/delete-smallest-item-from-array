@@ -799,7 +799,7 @@ function isAgeDiverse(list) {
         return true;
     }
 }
-//   return list.some(h => h.age >= 100) 
+//   return list.some(h => h.age >= 100)
 //   ?[10, 20, 30, 40, 50, 60, 70, 80, 90].every(e => list.some(x => x.age - e >= 0 && x.age - e <= 9))
 //   : false;
 // =============================
@@ -807,3 +807,32 @@ function isAgeDiverse(list) {
 // return dec.every(x => list.some(y => x.test(y.age)));
 // =============================
 // isAgeDiverse(list11);
+
+// true if the number of meetup participants representing any of the three programming languages is ** at most 2 times higher
+var list12 = [{ "firstName": "Mariami", "lastName": "G.", "country": "Georgia", "continent": "Europe", "age": 29, "language": "JavaScript" }, { "firstName": "Hanna", "lastName": "L.", "country": "Hungary", "continent": "Europe", "age": 29, "language": "Python" }, { "firstName": "Nareh", "lastName": "Q.", "country": "Armenia", "continent": "Europe", "age": 30, "language": "Python" }, { "firstName": "Nor", "lastName": "E.", "country": "Malaysia", "continent": "Asia", "age": 21, "language": "JavaScript" }, { "firstName": "Sofia", "lastName": "I.", "country": "Argentina", "continent": "Americas", "age": 35, "language": "JavaScript" }, { "firstName": "Althea", "lastName": "I.", "country": "Philippines", "continent": "Asia", "age": 31, "language": "Python" }, { "firstName": "Louise", "lastName": "F.", "country": "France", "continent": "Europe", "age": 22, "language": "Python" }, { "firstName": "Emma", "lastName": "B.", "country": "Norway", "continent": "Europe", "age": 19, "language": "Ruby" }, { "firstName": "Jakub", "lastName": "I.", "country": "Slovakia", "continent": "Europe", "age": 28, "language": "Python" }, { "firstName": "Nikola", "lastName": "H.", "country": "Serbia", "continent": "Europe", "age": 29, "language": "Ruby" }, { "firstName": "Alexander", "lastName": "F.", "country": "Russia", "continent": "Europe", "age": 89, "language": "Python" }, { "firstName": "Chloe", "lastName": "K.", "country": "Guernsey", "continent": "Europe", "age": 28, "language": "Python" }, { "firstName": "Manuel", "lastName": "C.", "country": "Equatorial Guinea", "continent": "Africa", "age": 22, "language": "Ruby" }, { "firstName": "Andrei", "lastName": "E.", "country": "Romania", "continent": "Europe", "age": 19, "language": "JavaScript" }, { "firstName": "Oliver", "lastName": "Q.", "country": "Australia", "continent": "Oceania", "age": 19, "language": "Python" }, { "firstName": "Maria", "lastName": "S.", "country": "Peru", "continent": "Americas", "age": 30, "language": "JavaScript" }, { "firstName": "Mohammad", "lastName": "N.", "country": "United Arab Emirates", "continent": "Asia", "age": 39, "language": "Python" }, { "firstName": "Maia", "lastName": "S.", "country": "Tahiti", "continent": "Oceania", "age": 28, "language": "JavaScript" }, { "firstName": "Fatima", "lastName": "H.", "country": "Pakistan", "continent": "Asia", "age": 28, "language": "Python" }, { "firstName": "Noah", "lastName": "M.", "country": "Switzerland", "continent": "Europe", "age": 19, "language": "JavaScript" }, { "firstName": "Noel", "lastName": "O.", "country": "Albania", "continent": "Europe", "age": 23, "language": "Python" }, { "firstName": "Fatima", "lastName": "A.", "country": "Algeria", "continent": "Africa", "age": 25, "language": "JavaScript" }, { "firstName": "Laia", "lastName": "P.", "country": "Andorra", "continent": "Europe", "age": 55, "language": "Ruby" }];
+function isLanguageDiverse(list) {
+    let obj = {};
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].language == 'Python') {
+            obj.python ? obj.python++ : obj.python = 1;
+        }
+        else if (list[i].language == 'Ruby') {
+            obj.ruby ? obj.ruby++ : obj.ruby=1;
+        }
+        else if (list[i].language == 'JavaScript') {
+            obj.javascript ? obj.javascript++ : obj.javascript=1;
+        }
+    }
+    console.log(obj);
+    console.log(Object.values(obj).sort(function (a, b) { return a - b } ));
+    let a = Object.values(obj).sort(function (a, b) { return a - b });
+    if (a[a.length-1] / a[0] <= 2) {
+        // console.log("true");
+        return true;
+    }
+    else {
+        // console.log("false");
+        return false;
+    }
+}
+// isLanguageDiverse(list12);
