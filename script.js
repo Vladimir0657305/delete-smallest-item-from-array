@@ -836,3 +836,26 @@ function isLanguageDiverse(list) {
     }
 }
 // isLanguageDiverse(list12);
+
+// function that adds the username property to each object
+var list13 = [{ "firstName": "Harry", "lastName": "K.", "country": "Brazil", "continent": "Americas", "age": 19, "language": "Python" }];
+function addUsername(list) {
+    for (let i = 0; i < list.length; i++) {
+        let a = list[i].firstName.toLowerCase();
+        let b = list[i].lastName.toLowerCase();
+        let c = new Date().getFullYear() - list[i].age;
+        
+        list[i].username = a + b[0] + c;
+    }
+    console.log(list);
+    return (list);
+}
+// return list.map(function (x) {
+//     x.username = x.firstName.toLowerCase() + x.lastName[0].toLowerCase() + (new Date().getFullYear() - x.age);
+//     return x;
+// =========================
+// const addUsername = (list, year = new Date().getFullYear()) =>
+//     list.forEach(x =>
+//         x.username = `${x.firstName.toLowerCase()}${x.lastName[0].toLowerCase()}${year - x.age}`
+//     ) || list;
+// addUsername(list13);
