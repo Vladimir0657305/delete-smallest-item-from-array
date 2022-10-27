@@ -859,3 +859,33 @@ function addUsername(list) {
 //         x.username = `${x.firstName.toLowerCase()}${x.lastName[0].toLowerCase()}${year - x.age}`
 //     ) || list;
 // addUsername(list13);
+// function that does with an array/list/vector of integers and the expected number n of smallest elements to return.
+let list15 = [-4, 9, 3, 10, -10, -8, 0, 3, -9, 9, -9, 7, 4, 9, -3, -2, -4, -10, 1, -7, 1, 1]
+let n15 = 19;
+function firstNSmallest(array, n) {
+    let out = [];
+    if(n == 0) return([]);
+    let b = [...array].sort(function (a, b) { return a - b });
+    let a = b.splice(0,19);
+    
+    // console.log(a);
+    // console.log(b);
+        for (let j = 0; j < array.length; j++) {
+            
+            for (let i = 0; i < n; i++) {
+                console.log(j, i, array[j], a[i]);
+                if (array[j] == a[i]) {
+                out.push(array[j]);
+                a.splice(i, 1);
+                console.log(out, a)
+                // continue;
+                break
+            }
+            }
+            if (out.length == n) {
+                console.log(out);
+                return(out);
+            }
+        }
+}
+firstNSmallest(list15, n15);
