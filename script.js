@@ -859,14 +859,39 @@ function addUsername(list) {
 //         x.username = `${x.firstName.toLowerCase()}${x.lastName[0].toLowerCase()}${year - x.age}`
 //     ) || list;
 // addUsername(list13);
+
 // function that does with an array/list/vector of integers and the expected number n of smallest elements to return.
-let list15 = [-4, 9, 3, 10, -10, -8, 0, 3, -9, 9, -9, 7, 4, 9, -3, -2, -4, -10, 1, -7, 1, 1]
-let n15 = 19;
+let list15 = [-6,
+-3,
+    10,
+-7,
+-9,
+    8,
+-4,
+    6,
+    3,
+-5,
+    3,
+-8,
+-5,
+    9,
+    6,
+-5,
+    10,
+    3,
+    1,
+-4,
+-9,
+    2,
+-9,
+-7,
+    6]
+let n15 = 13;
 function firstNSmallest(array, n) {
     let out = [];
     if(n == 0) return([]);
     let b = [...array].sort(function (a, b) { return a - b });
-    let a = b.splice(0,19);
+    let a = b.splice(0,n);
     
     // console.log(a);
     // console.log(b);
@@ -888,4 +913,28 @@ function firstNSmallest(array, n) {
             }
         }
 }
-firstNSmallest(list15, n15);
+// while (array.length != n) {
+//     array.splice(array.lastIndexOf(Math.max(...array)), 1)
+// }
+// return array
+// ========================
+// return arr.map((e, i) => ({ e, i }))
+//     .sort((a, b) => a.e - b.e || a.i - b.i)
+//     .slice(0, n)
+//     .sort((a, b) => a.i - b.i)
+//     .map(w => w.e);
+// ========================
+// const firstNSmallest = (array, n) => array
+//     .map((num, idx) => ({ num, idx }))
+//     .sort((a, b) => a.num - b.num || a.idx - b.idx)
+//     .slice(0, n)
+//     .sort((a, b) => a.idx - b.idx)
+//     .map(obj => obj.num);
+// ========================
+// const firstNSmallest = (array, n, idx = array.lastIndexOf(Math.max(...array))) =>
+//     array.length - n ? firstNSmallest([...array.slice(0, idx), ...array.slice(++idx)], n) : array;
+// ========================
+// firstNSmallest = (a, b) => b ? a.map((e, i) => [e, i]).sort((a, b) => b[0] - a[0] || b[1] - a[1]).slice(-b).sort((a, b) => a[1] - b[1]).map(a => a[0]) : []
+// ========================
+// firstNSmallest(list15, n15);
+
